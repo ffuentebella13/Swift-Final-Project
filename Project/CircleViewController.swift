@@ -10,14 +10,25 @@ import UIKit
 
 class CircleViewController: UIViewController {
     var scoreString:String = ""
+    var timeLeftString:String = ""
     var yAxis = 0, xAxis = 0;
     var score = 0;
-    
+    var time = 0;
+    var timer = Timer()
+    @IBOutlet weak var countdownTimer: UILabel!
     @IBOutlet weak var scoring: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var controls: UIImageView!
     
+
+    @objc func action(){
+        time = Int(countdownTimer.text!)!;
+        time-=1
+        countdownTimer.text = String(time)
+    }
+    
+
     @IBAction func up(_ sender: Any) {
         yAxis = yAxis - 2;
         moveCircle(yAx: yAxis, xAx: self.xAxis)
@@ -59,6 +70,7 @@ class CircleViewController: UIViewController {
     }
     
     func drawCircle(yAx: Int, xAx: Int) {
+      
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 80, height: 80))
         let xCoordinate = 5;
         let yCoordinate = 5;
@@ -89,6 +101,9 @@ class CircleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
          scoring.text = scoreString
+         countdownTimer.text = timeLeftString
+
+         timer = Timer.scheduledTimer(timeInterval:1, target:self, selector: #selector(CircleViewController.action), userInfo: nil, repeats:true)
          drawCircle(yAx:0,xAx:0);
         // Do any additional setup after loading the view.
     }

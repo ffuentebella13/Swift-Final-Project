@@ -13,6 +13,7 @@ class TriangleViewController: UIViewController {
     var yAxis = 0, xAxis = 0;
     var score = 0;
     
+    @IBOutlet weak var timer: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var controls: UIImageView!
     

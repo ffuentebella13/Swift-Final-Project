@@ -13,11 +13,21 @@ class SquareViewController: UIViewController {
     var yAxis = 0, xAxis = 0;
     var score = 0;
     
+    @IBOutlet weak var countdownTimer: UILabel!
+    
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var controls: UIImageView!
     
     @IBOutlet weak var scoring: UILabel!
+    
+    var timer = Timer()
+    var time = 60
+    
+    @objc func action(){
+        time -= 1
+        countdownTimer.text = String(time)
+    }
     
     @IBAction func up(_ sender: Any) {
         yAxis = yAxis - 2;
@@ -90,12 +100,13 @@ class SquareViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var passData = segue.destination as! CircleViewController
 
+        
         passData.scoreString = scoring.text!
-
+        passData.timeLeftString = countdownTimer.text!
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        timer = Timer.scheduledTimer(timeInterval:1, target:self, selector: #selector(SquareViewController.action), userInfo: nil, repeats:true)
         drawRectangle(yAx:0,xAx:0);
                 // Do any additional setup after loading the view.
     }
