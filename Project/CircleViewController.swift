@@ -18,14 +18,22 @@ class CircleViewController: UIViewController {
     @IBOutlet weak var countdownTimer: UILabel!
     @IBOutlet weak var scoring: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var controls: UIImageView!
+    @IBOutlet weak var scoreOutput: UILabel!
+    @IBOutlet weak var gameover: UIImageView!
     
-
     @objc func action(){
         time = Int(countdownTimer.text!)!;
         time-=1
         countdownTimer.text = String(time)
+        if(time <= 0){
+            gameover.isHidden = false
+            controls.isHidden = true
+            imageView.isHidden = true
+            scoreOutput.text = scoring.text! + " Points"
+            timer.invalidate();
+            
+        }
     }
     
 
@@ -96,6 +104,7 @@ class CircleViewController: UIViewController {
          var passData = segue.destination as! TriangleViewController
 
          passData.scoreString = scoring.text!
+         passData.timeLeftString = countdownTimer.text!
 
      }
     override func viewDidLoad() {

@@ -21,12 +21,29 @@ class SquareViewController: UIViewController {
     
     @IBOutlet weak var scoring: UILabel!
     
-    var timer = Timer()
-    var time = 60
+    @IBOutlet weak var scoreOutput: UILabel!
     
+    @IBOutlet weak var gameover: UIImageView!
+    
+    var timer = Timer()
+    var time = 15
+
     @objc func action(){
-        time -= 1
+      
         countdownTimer.text = String(time)
+        
+        if(time <= 0){
+            gameover.isHidden = false
+            controls.isHidden = true
+            imageView.isHidden = true
+            scoreOutput.text = scoring.text! + " Points"
+            timer.invalidate();
+            
+        }
+        else{
+              time -= 1
+            
+        }
     }
     
     @IBAction func up(_ sender: Any) {
@@ -100,7 +117,6 @@ class SquareViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var passData = segue.destination as! CircleViewController
 
-        
         passData.scoreString = scoring.text!
         passData.timeLeftString = countdownTimer.text!
     }

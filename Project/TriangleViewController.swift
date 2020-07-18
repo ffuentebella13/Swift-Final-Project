@@ -10,15 +10,32 @@ import UIKit
 
 class TriangleViewController: UIViewController {
     var scoreString:String = ""
+    var timeLeftString:String = ""
     var yAxis = 0, xAxis = 0;
     var score = 0;
-    
-    @IBOutlet weak var timer: UILabel!
+    var time = 0;
+    var timer = Timer()
+
+    @IBOutlet weak var countdownTimer: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var controls: UIImageView!
-    
     @IBOutlet weak var scoring: UILabel!
-    
+    @IBOutlet weak var gameover: UIImageView!
+    @IBOutlet weak var scoreOutput: UILabel!
+  
+    @objc func action(){
+        time = Int(countdownTimer.text!)!;
+        time-=1
+        countdownTimer.text = String(time)
+        if(time <= 0){
+            gameover.isHidden = false
+            controls.isHidden = true
+            imageView.isHidden = true
+            scoreOutput.text = scoring.text! + " Points"
+            timer.invalidate();
+            
+        }
+    }
     @IBAction func up(_ sender: Any) {
         yAxis = yAxis - 1;//up
         xAxis = xAxis - 2;
@@ -93,6 +110,9 @@ class TriangleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         scoring.text = scoreString
+        countdownTimer.text = timeLeftString
+
+        timer = Timer.scheduledTimer(timeInterval:1, target:self, selector: #selector(CircleViewController.action), userInfo: nil, repeats:true)
         drawTriangle(yAx:0,xAx:0);
         // Do any additional setup after loading the view.
     }
