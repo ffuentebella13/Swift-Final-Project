@@ -2,8 +2,9 @@
 //  ViewController.swift
 //  Project
 //
-//  Created by Patricia Anjelica Lavadia on 2020-07-09.
-//  Copyright © 2020 Patricia Anjelica Lavadia. All rights reserved.
+//  Created by Patricia Anjelica Lavadia
+//  		   Francis Fuentebella
+//  Copyright © 2020 Group 6. All rights reserved.
 //
 
 import UIKit

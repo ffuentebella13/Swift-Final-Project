@@ -154,6 +154,7 @@
         <!--Square View Controller-->
         <scene sceneID="BVy-Hz-Uo2">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ywz-v0-faR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="YtB-sw-RHn" customClass="SquareViewController" customModule="Project" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uj9-T7-hvO" customClass="View">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
@@ -255,18 +256,6 @@
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHX-1g-nU2">
-                                <rect key="frame" x="20" y="20" width="117" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title=" Menu" image="menu">
-                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="homeMenu:" destination="YtB-sw-RHn" eventType="touchUpInside" id="M0Y-pk-CJg"/>
-                                    <action selector="menu:" destination="YtB-sw-RHn" eventType="touchUpInside" id="x9B-09-gdW"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="f4u-sw-656"/>
@@ -281,7 +270,6 @@
                         <segue destination="sbv-rk-51K" kind="presentation" identifier="CircleView" id="heX-DM-28C"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ywz-v0-faR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="860.86956521739137" y="139.95535714285714"/>
         </scene>
@@ -337,14 +325,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esC-bl-NSc">
-                                <rect key="frame" x="20" y="20" width="117" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title=" Menu" image="menu">
-                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXx-jb-zFG">
                                 <rect key="frame" x="168" y="733" width="78" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -555,6 +535,7 @@
                         <outlet property="imageView" destination="Ify-Yj-SxT" id="S7d-o1-e21"/>
                         <outlet property="scoreOutput" destination="6Db-4S-3ej" id="PCh-Sq-UcZ"/>
                         <outlet property="scoring" destination="7qf-Uv-6tK" id="wa4-SL-MoO"/>
+                        <segue destination="YtB-sw-RHn" kind="presentation" identifier="SquareController" id="KF0-a7-JXB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HwY-lx-GK5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -579,6 +560,7 @@
         <image name="up" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="KF0-a7-JXB"/>
         <segue reference="dYe-8W-qXq"/>
     </inferredMetricsTieBreakers>
 </document>
